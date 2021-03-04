@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>简单的音乐播放器</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!-- 引入 jQuery Mobile 样式 -->
+		<link rel="stylesheet" href="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+		<!-- 引入 jQuery 库 -->
+		<script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+
+		<!-- 引入 jQuery Mobile 库 -->
+		<script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+		<!-- 引入字体图标 -->
+		<link rel="stylesheet" type="text/css" href="/static/fonts/fontawesome-free-5.11.2-web/css/all.css" />
+		<!-- 引入common.css -->
+		<link rel="stylesheet" type="text/css" href="/static/css/common.css" />
+		<!-- 引入index.css文件 -->
+		<link rel="stylesheet" type="text/css" href="/static/css/index.css" />
+
+	</head>
+	<body>
+		<!-- 文件上传控件 -->
+		<form action="/updateImg" enctype="multipart/form-data" method="post" id="fileForm" hidden>
+		    <input type="file"  id="fileInput"name="fileData" multiple="multiple">
+		</form>
+    <!-- 主页 -->
+		<div data-role="page" id="index">
+			<div data-role="panel" id="userPanel" data-display="overlay">
+				<div class="userInfo clr_float">
+					<img src="/static/imgs/bg.png" alt="" class="userImg">
+					<h3 class="userName clr_txtShadow"></h3>
+					<em class="userLevelBox clr_txtShadow">Lv.
+						<span class="userLevel"></span>
+					</em>
+				</div>
+				<div class="userFunction">
+					<div class="userToolBox">
+						<ul>
+							<li><a href="#"><em class="fas fa-envelope"></em>我的消息</a></li>
+							<li><a href="#"><em class="fas fa-user-friends"></em>我的好友</a></li>
+							<li><a href="#"><em class="fas fa-microphone"></em>听歌识曲</a></li>
+							<li><a href="#"><em class="fas fa-adjust"></em>个性装饰</a></li>
+						</ul>
+					</div>
+					<div class="userItem">
+						<ul>
+							<li><a href="#"><em class="fas fa-film"></em>演出</a></li>
+							<li><a href="#"><em class="fas fa-shopping-cart"></em>商城</a></li>
+							<li><a href="#"><em class="fas fa-map-marker-alt"></em>附近的人</a></li>
+							<li><a href="#"><em class="fas fa-music"></em>口袋彩铃</a></li>
+							<li><a href="#"><em class="fas fa-file-alt"></em>我的订单</a></li>
+							<li><a href="#"><em class="fas fa-stopwatch"></em>定时停止播放</a></li>
+							<li><a href="#"><em class="fas fa-expand"></em>扫一扫</a></li>
+							<li><a href="#"><em class="fas fa-clock"></em>音乐闹钟</a></li>
+							<li><a href="#"><em class="fas fa-cloud"></em>音乐云盘</a></li>
+							<li><a href="#"><em class="fas fa-print"></em>在线听歌免流量</a></li>
+							<li><a href="#"><em class="fas fa-gamepad"></em>游戏推荐</a></li>
+							<li><a href="#"><em class="fas fa-money-bill-wave"></em>优惠券</a></li>
+							<li><a href="#"><em class="fas fa-shield-alt"></em>青少年模式</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="userFixedBtnBox">
+					<a href="#">设置</a>
+					<a href="/loginOut" data-ajax="false">退出登录</a>
+				</div>
+			</div>
+			<div class="panelShowBgBox"></div>
+			<div data-role="page" id="searchPage">
+				<div data-role="header" data-tap-toggle="false" data-position="fixed" id="indexHeader" class="clr_txtShadow">
+					<a href="#index" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-left ui-btn-icon-notext ui-nodisc-icon clr_borAndBg clr_boxShadow"
+					 data-ajax="false">主页</a>
+				</div>
+				<div data-role="main"></div>
+			</div>
+			<div data-role="header" data-tap-toggle="false" data-position="fixed" id="indexHeader" class="clr_txtShadow">
+				<a href="#userPanel" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-left ui-btn-icon-notext ui-nodisc-icon clr_borAndBg clr_boxShadow">主页</a>
+				<ol id="indexHeaderOl">
+					<li class="curLi">我的</li>
+					<li>发现</li>
+					<li>视频</li>
+				</ol>
+				<a href="#searchPage" data-ajax="false" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left ui-btn-icon-notext ui-nodisc-icon clr_borAndBg clr_boxShadow">搜索</a>
+			</div>
+			<div data-role="main" id="indexMain">
+				<div class="contentToggleBox">
+					<ul>
+						<li>
+							<div class="toolBox">
+								<ul class="clr_float">
+									<li><a href="#"><em class="fas fa-moon"></em>奇妙空间</a></li>
+									<li><a href="#"><em class="fas fa-asterisk"></em>节奏之战</a></li>
+									<li><a href="#"><em class="fas fa-cannabis"></em>嘴嗨电音</a></li>
+									<li><a href="#"><em class="fas fa-brain"></em>猜歌大赛</a></li>
+									<li><a href="#"><em class="fas fa-check-double"></em>推荐私歌</a></li>
+									<li><a href="#"><em class="fas fa-user-friends"></em>交友专区</a></li>
+									<li><a href="#"><em class="fas fa-palette"></em>亲子空间</a></li>
+									<li><a href="#"><em class="fas fa-running"></em>跑步FM</a></li>
+									<li><a href="#"><em class="fas fa-skull-crossbones"></em>盗梦空间</a></li>
+								</ul>
+							</div>
+							<div class="toolList">
+								<ul>
+									<li><em class="fas fa-music"></em><a href="#">本地音乐<span>(183)</span></a></li>
+									<li><em class="fas fa-play-circle"></em><a href="#">最近播放<span>(152)</span></a></li>
+									<li><em class="fas fa-arrow-down"></em><a href="#">下载管理<span>(286)</span></a></li>
+									<li><em class="fas fa-wifi"></em><a href="#">我的电台<span>(4)</span></a></li>
+									<li><em class="fas fa-users-cog"></em><a href="#">我的收藏<span>(23)</span></a></li>
+								</ul>
+							</div>
+							<div class="foldBtn">
+								<span class="songListTitle createSongListFold" id="fold1"><em class="fas fa-angle-down"></em>创建的歌单<strong>(11)</strong></span>
+								<span href="#" class="addSongListBtn"><em class="fas fa-plus"></em></span>
+								<span href="#" class="songListTool"><em class="fas fa-bars"></em></span>
+							</div>
+							<ul data-foldId="fold1" class="foldBox songListBox">
+								<li class="userLikeSongList">
+									<a href="?type=likeSongList#songListTemplate" data-ajax="false">
+										<img src="/static/imgs/musicCoverImg/default_cover.jpg" alt="" class="userLikeSongListCoverImg">
+										<h2 class="clr_txtShadow">我喜欢的音乐</h2>
+										<h3 class="clr_txtShadow"><span class="likeSongListCount">0</span>首</h3>
+									</a>
+								</li>
+							</ul>
+							<div class="foldBtn">
+								<span class="songListTitle" id="fold2"><em class="fas fa-angle-down"></em>收藏的歌单<strong>(0)</strong></span>
+								<span href="#" class="songListTool"><em class="fas fa-bars"></em></span>
+							</div>
+							<ul data-foldId="fold2" class="foldBox">
+								<!-- <li>
+									<a href="#">
+										<img src="/static/imgs/bg.png" alt="">
+										<h2 class="clr_txtShadow">粤语好听到爆的粤语歌单</h2>
+										<h3 class="clr_txtShadow">100首</h3>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="/static/imgs/bg.png" alt="">
+										<h2 class="clr_txtShadow">那些网易评论过十万的歌</h2>
+										<h3 class="clr_txtShadow">100首</h3>
+									</a>
+								</li> -->
+							</ul>
+						</li>
+						<li>
+							<div class="bannerBox">
+								<ul>
+									<li><a href="#"><img src="/static/imgs/banner/banner1.jpg" alt=""></a></li>
+									<li><a href="#"><img src="/static/imgs/banner/banner2.jpg" alt=""></a></li>
+									<li><a href="#"><img src="/static/imgs/banner/banner3.jpg" alt=""></a></li>
+								</ul>
+							</div>
+							<div class="discoverTool">
+								<ul>
+									<li><a href="#"><em class="fas fa-calendar-check"></em>日推</a></li>
+									<li><a href="#"><em class="fas fa-list-ul"></em>歌单库</a></li>
+									<li><a href="#"><em class="fas fa-list-ol"></em>排行</a></li>
+									<li><a href="#"><em class="fas fa-rss"></em>电台</a></li>
+									<li><a href="#"><em class="fas fa-align-justify"></em>私人FM</a></li>
+								</ul>
+							</div>
+							<div class="recommendDiscoverList">
+								<div class="recommendDiscoverTitleBox">
+									<h2 class="recommendDiscoverTitle clr_txtShadow">推荐歌单</h2>
+									<span class="manyDiscover clr_txtShadow">歌单广场</span>
+								</div>
+								<div class="ui-grid-b">
+									<div class="ui-block-a recommendDiscoverBlobk">
+										<img src="/static/imgs/musicCoverImg/fm2.jpg">
+										<span>第一场雪</span>
+										<div class="playCountBox">
+											<em class="fas fa-play"></em>
+											<span class="playCount">1230</span>
+										</div>
+									</div>
+									<div class="ui-block-b recommendDiscoverBlobk">
+										<img src="/static/imgs/musicCoverImg/fm3.jpg">
+										<span>今天从美好的一天开始吧</span>
+										<div class="playCountBox">
+											<em class="fas fa-play"></em>
+											<span class="playCount">1230</span>
+										</div>
+									</div>
+									<div class="ui-block-c recommendDiscoverBlobk">
+										<img src="/static/imgs/musicCoverImg/fm4.jpg">
+										<span>十分钟学会英文歌</span>
+										<div class="playCountBox">
+											<em class="fas fa-play"></em>
+											<span class="playCount">1230</span>
+										</div>
+									</div>
+								</div>
+								<div class="ui-grid-b">
+									<div class="ui-block-a recommendDiscoverBlobk">
+										<img src="/static/imgs/musicCoverImg/fm5.jpg">
+										<span>有品位的英语学霸速成记</span>
+										<div class="playCountBox">
+											<em class="fas fa-play"></em>
+											<span class="playCount">1230</span>
+										</div>
+									</div>
+									<div class="ui-block-b recommendDiscoverBlobk">
+										<img src="/static/imgs/musicCoverImg/fm6.jpg">
+										<div class="playCountBox">
+											<em class="fas fa-play"></em>
+											<span class="playCount">1230</span>
+										</div>
+										<span>年轻不老 老年痴呆</span>
+									</div>
+									<div class="ui-block-c recommendDiscoverBlobk">
+										<img src="/static/imgs/musicCoverImg/fm7.jpg">
+										<span>这个夏天要一起喝橘子味的汽水</span>
+										<div class="playCountBox">
+											<em class="fas fa-play"></em>
+											<span class="playCount">1230</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="recommendedVideoList">
+								<div class="recommendedVideoTitleBox">
+									<h2 class="recommendVideoTitle clr_txtShadow">视频精选</h2>
+									<span class="getNewVideo clr_txtShadow"><em class="fas fa-redo"></em>获取新内容</span>
+								</div>
+								<div class="recommendedVideoBox clr_txtShadow clr_float">
+									<div class="videoBox">
+										<img src="/static/imgs/videoCover/1.jpg" alt="" class="videoCover">
+										<div class="videoSrc" hidden>/static/video/1.mp4</div>
+										<em class="fas fa-play palyIcon"></em>
+										<div class="videoTime"><em class="fas fa-align-right"></em>5:21</div>
+										<div class="videoTitle">
+											<span>相信我,没有错</span>
+											<div class="videoUserImg">
+												<img src="/static/imgs/bg.png">
+											</div>
+										</div>
+									</div>
+									<a src="#" class="likes"><em class="fas fa-hand-holding-heart"></em>8228</a>
+									<a src="#" class="comments"><em class="fas fa-comment-dots"></em>1332</a>
+									<a src="#" class="settings"><em class="fas fa-ellipsis-v"></em></a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="recommendedVideoList">
+								<div class="recommendedVideoBox clr_txtShadow clr_float">
+									<div class="videoBox">
+										<img src="/static/imgs/videoCover/2.jpg" class="videoCover" alt="">
+										<div class="videoSrc" hidden>/static/video/1.mp4</div>
+										<em class="fas fa-play palyIcon"></em>
+										<div class="videoTime"><em class="fas fa-align-right"></em>5:21</div>
+										<div class="videoTitle">
+											<span>芜湖~起飞</span>
+											<div class="videoUserImg">
+												<img src="/static/imgs/bg.png">
+											</div>
+										</div>
+									</div>
+									<a src="#" class="likes"><em class="fas fa-hand-holding-heart"></em>8228</a>
+									<a src="#" class="comments"><em class="fas fa-comment-dots"></em>1332</a>
+									<a src="#" class="settings"><em class="fas fa-ellipsis-v"></em></a>
+								</div>
+							</div>
+							<div class="recommendedVideoList">
+								<div class="recommendedVideoBox clr_txtShadow clr_float">
+									<div class="videoBox">
+										<img src="/static/imgs/videoCover/3.jpg" class="videoCover" alt="">
+										<div class="videoSrc" hidden>/static/video/2.mp4</div>
+										<em class="fas fa-play palyIcon"></em>
+										<div class="videoTime"><em class="fas fa-align-right"></em>5:21</div>
+										<div class="videoTitle">
+											<span>半个人*2</span>
+											<div class="videoUserImg">
+												<img src="/static/imgs/bg.png">
+											</div>
+										</div>
+									</div>
+									<a src="#" class="likes"><em class="fas fa-hand-holding-heart"></em>3250</a>
+									<a src="#" class="comments"><em class="fas fa-comment-dots"></em>450</a>
+									<a src="#" class="settings"><em class="fas fa-ellipsis-v"></em></a>
+								</div>
+							</div>
+							<div class="recommendedVideoList">
+								<div class="recommendedVideoBox clr_txtShadow clr_float">
+									<div class="videoBox">
+										<img src="/static/imgs/videoCover/4.jpg" class="videoCover" alt="">
+										<div class="videoSrc" hidden>/static/video/1.mp4</div>
+										<em class="fas fa-play palyIcon"></em>
+										<div class="videoTime"><em class="fas fa-align-right"></em>5:21</div>
+										<div class="videoTitle">
+											<span>漂洋过海来来揍你</span>
+											<div class="videoUserImg">
+												<img src="/static/imgs/bg.png">
+											</div>
+										</div>
+									</div>
+									<a src="#" class="likes"><em class="fas fa-hand-holding-heart"></em>6666</a>
+									<a src="#" class="comments"><em class="fas fa-comment-dots"></em>1314</a>
+									<a src="#" class="settings"><em class="fas fa-ellipsis-v"></em></a>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- 用户信息模板 -->
+		<div data-role="page" id="userInfoTemplate">
+			<div data-role="header" data-tap-toggle="false" data-position="fixed" id="userInfoTemplateHeader" class="clr_txtShadow">
+				<a href="#index" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext ui-nodisc-icon clr_borAndBg clr_boxShadow">返回</a>
+				<a href="#" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left ui-btn-icon-notext ui-nodisc-icon clr_borAndBg clr_boxShadow">搜索</a>
+			</div>
+			<div data-role="main" id="userInfoTemplateMain">
+				<div class="userCoverBox clr_txtShadow">
+					<div class="userAvatarBox">
+						<img src="/static/imgs/avatar/avatar_default.jpg" alt="" class="userAvatar">
+					</div>
+					<div class="userName ">哈哈哈哈</div>
+					<em class="userLevelBox">Lv.
+						<span class="userLevel"></span>
+					</em>
+					<div class="userEdit userBtn">编辑</div>
+					<div class="userUpdateCover userBtn">更换背景</div>
+				</div>
+				<div class="userInfoAndSongListBox clr_txtShadow">
+					<div class="infoBox">
+						<h2>创建的歌单</h2>
+						<div class="userTemplateCreactSongList">
+							<ul></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 用户修改页面 -->
+		<div data-role="page" id="userEditPage">
+			<div data-role="header" data-tap-toggle="false" data-position="fixed" id="userEditPageHeader" class="clr_txtShadow">
+				<a href="#index" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext ui-nodisc-icon clr_borAndBg clr_boxShadow">返回</a>
+				<h1>我的资料</h1>
+			</div>
+			<div data-role="main" id="userEditPageMain" class="clr_txtShadow">
+				<ul class="basicInfo">
+					<li class="updateUserAvatar">
+						<p>头像</p>
+						<img src="/static/imgs/avatar/avatar_default.jpg" alt="" class="userAvatar">
+					</li>
+					<li>
+						<p>用户名</p>
+						<span class="userName">12321</span>
+					</li>
+					<li>
+						<p>邮箱</p>
+						<span class="userEmail">12321</span>
+					</li>
+				</ul>
+			</div>
+		</div>	
+		<!-- 歌单模板 -->
+		<div data-role="page" id="songListTemplate">
+			<div data-role="header" data-tap-toggle="false" data-position="fixed" id="songListTemplateHeader" class="clr_txtShadow">
+				<a href="#index" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext ui-nodisc-icon clr_borAndBg clr_boxShadow">返回</a>
+				<span class="songListTemplateHeaderTitle">歌单</span>
+				<a href="#" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left ui-btn-icon-notext ui-nodisc-icon clr_borAndBg clr_boxShadow">搜索</a>
+			</div>
+			<div data-role="main" id="songListTemplateMain">
+				<div class="songListTemplateInfo">
+					<div class="imgBox">
+						<img src="/static/imgs/bg.png" alt="">
+						<em class="far fa-heart clr_txtShadow"></em>
+					</div>
+					<h2 class="songListTemplateInfoTitle clr_txtShadow">我喜欢的音乐</h2>
+					<a class="songListTemplateUserInfo">
+						<img src="/static/imgs/bg.png" alt="" class="songListTemplateUserImg">
+						<div class="songListTemplateUserName clr_txtShadow"><em class="fas fa-angle-right"></em>123123</div>
+						<div class="songListTemplateUserId" hidden></div>
+					</a>
+					<div class="songListTmplateTool">
+						<ul>
+							<li><a href="#"><em class="fas fa-comment-dots"></em>评论</a></li>
+							<li><a href="#" class="songListTemplateShare"><em class="fas fa-share-alt"></em>分享</a></li>
+							<li><a href="#"><em class="fas fa-cloud-download-alt"></em>下载</a></li>
+							<li><a href="#"><em class="fas fa-check-square"></em>多选</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="songList">
+					<ul></ul>
+				</div>
+			</div>
+		</div>
+		<!-- 播放控件 -->
+		<div data-role="page" id="audioTemplate">
+			<div class="audioTemplateBg">
+				<img src="">
+			</div>
+			<div data-role="header" data-tap-toggle="false" data-position="fixed" id="audioTemplateHeader" class="clr_txtShadow">
+				<a href="#index" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext ui-nodisc-icon clr_borAndBg clr_boxShadow"
+				 id="audioTemplateReturnBtn" data-ajax="false">返回</a>
+				<div class="audioTemplateHeaderTitle">
+					<h3 class="songName"></h3>
+					<p class="singerName"></p>
+				</div>
+				<div class="audioTemplateShare"><em class="fas fa-share-alt"></em></div>
+			</div>
+			<div data-role="main" id="audioTemplateMain">
+				<div class="coverBox curBox">
+					<div class="coverBoxImg">
+						<img src="">
+					</div>
+				</div>
+				<div class="lyricsAndVoiceBox clr_txtShadow">
+					<div class="voiceBox">
+						<em class="fas fa-volume-up clr_txtShadow"></em>
+						<div class="voiceRange">
+							<a href="#" class="voiceRangeBtn"></a>
+							<div class="voiceRangeLenght"></div>
+						</div>
+					</div>
+					<div class="lyricBox">
+						<ul id="lyric"></ul>
+					</div>
+				</div>
+				<div class="audioTool">
+					<ul class="elseTool clr_txtShadow">
+						<li><a href="#" class="likeSongBtn"><em class="fas fa-heart"></em></a></li>
+						<li><a href="#"><em class="far fa-arrow-alt-circle-down"></em></a></li>
+						<li><a href="#"><em class="far fa-comment-dots"></em></a></li>
+						<li><a href="#" class="songSettings"><em class="fas fa-ellipsis-v"></em></a></li>
+					</ul>
+					<div class="progressBarBox">
+						<span class="curTime">0:00</span>
+						<div class="audioRange">
+							<a href="#" class="audioRangeBtn"></a>
+							<div class="audioRangeLenght"></div>
+						</div>
+						<span class="sumTime">0:00</span>
+					</div>
+					<ul class="controlTool">
+						<li class="playType">
+							<a href="#" data-type="order" class="curPlayType"><em class="fas fa-bars"></em></a>
+							<a href="#" data-type="loop"><em class="fas fa-sync-alt"></em></a>
+							<a href="#" data-type="oneLoop"><em class="fas fa-redo"></em></a>
+							<a href="#" data-type="random"><em class="fas fa-random"></em></a>
+						</li>
+						<li><a href="#" class="songUp"><em class="fas fa-step-backward"></em></a></li>
+						<li><a href="#" class="songPlay"><em class="fas fa-play-circle"></em></a></li>
+						<li><a href="#" class="songNext"><em class="fas fa-step-forward"></em></a></li>
+						<li><a href="#" class="songList"><em class="fas fa-list-ul"></em></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="fixedSongSettingsBox">
+				<div class="fixedSongSettings clr_txtShadow">
+					<ul>
+						<li>
+							<a href="#" class="addToCreateSongList"><em class="fas fa-plus-square"></em>添加到我的歌单</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="fixedShowCreateSongListBox">
+				<div class="fixedShowCreateSongList clr_txtShadow">
+					<ul></ul>
+				</div>
+			</div>
+		</div>
+		<!-- 搜索页面 -->
+		<div data-role="page" id="searchPage">
+			<div data-role="header" data-tap-toggle="false" id="searchPageHeader">
+				<a href="#index" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext ui-nodisc-icon clr_borAndBg clr_boxShadow"
+				 id="searchPageHeaderBtn">返回</a>
+				<div class="clearInputVal clr_txtShadow"><em class="fas fa-times"></em></div>
+				<form action="" id="searchPageForm">
+					<input type="text" id="searchInput" placeholder="请输入要搜索的歌曲/用户">
+				</form>
+				<a href="#" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left ui-btn-icon-notext ui-nodisc-icon clr_borAndBg clr_boxShadow"
+				 id="searchBtn">搜索</a>
+			</div>
+			<div data-role="main" id="searchPageMain">
+				<h2>历史记录</h2>
+				<div class="searchHistoryBox">
+					<ul class="clr_float"></ul>
+				</div>
+				<h2 class="hotSearchTitle">热搜榜</h2>
+				<ul class="hotSearch">
+					<li>
+						<div class="index">1</div>
+						<span class="hotSongName">野心</span>
+						<span class="hotCount">1245345</span>
+						<span class="singer">薛之谦</span>
+					</li>
+					<li>
+						<div class="index">2</div>
+						<span class="hotSongName">相安</span>
+						<span class="hotCount">1024354</span>
+						<span class="singer">小魂</span>
+					</li>
+					<li>
+						<div class="index">3</div>
+						<span class="hotSongName">戒断期</span>
+						<span class="hotCount">844621</span>
+						<span class="singer">卢卢快闭嘴</span>
+					</li>
+					<li>
+						<div class="index">4</div>
+						<span class="hotSongName">小段</span>
+						<span class="hotCount">768441</span>
+						<span class="singer">汪苏泷</span>
+					</li>
+					<li>
+						<div class="index">5</div>
+						<span class="hotSongName">仅你可见的歌</span>
+						<span class="hotCount">434210</span>
+						<span class="singer">赫兹乐队</span>
+					</li>
+					<li>
+						<div class="index">6</div>
+						<span class="hotSongName">弃</span>
+						<span class="hotCount">230440</span>
+						<span class="singer">井胧</span>
+					</li>
+					<li>
+						<div class="index">7</div>
+						<span class="hotSongName">牛仔</span>
+						<span class="hotCount">124340</span>
+						<span class="singer">沈以诚</span>
+					</li>
+					<li>
+						<div class="index">8</div>
+						<span class="hotSongName">雪下的时候</span>
+						<span class="hotCount">44561</span>
+						<span class="singer">乔佳旭</span>
+					</li>
+					<li>
+						<div class="index">9</div>
+						<span class="hotSongName">星河</span>
+						<span class="hotCount">23450</span>
+						<span class="singer">王巨星</span>
+					</li>
+					<li>
+						<div class="index">10</div>
+						<span class="hotSongName">萧敬腾</span>
+						<span class="hotCount">12430</span>
+						<span class="singer">萧敬腾</span>
+					</li>
+				</ul>
+				<h2>单曲</h2>
+				<ul class="songSerch"></ul>
+				<h2>用户</h2>
+				<ul class="userSearch"></ul>
+			</div>
+		</div>
+		<!-- 小播放控件的切换显示按钮 -->
+		<div href="#" class="toggleBtn"><em class="fas fa-arrow-left"></em></div>
+		<div href="#audioTemplate" class="fixedAudioBox clr_txtShadow" data-flag="true">
+			<div class="fixedAudioImgBox">
+				<img src="/static/imgs/bg.png" alt="" class="fixedAudioImg">
+			</div>
+			<div class="fixedAudioTitle clr_txtShadow">
+				<h3 class="songName"></h3>
+				<p class="singerName"></p>
+			</div>
+			<div href="#" class="songPlay"><em class="fas fa-play-circle"></em></div>
+			<div href="#" class="songList"><em class="fas fa-list-ul"></em></div>
+			<div class="audioRangBox">
+				<div class="audioRang"></div>
+			</div>
+		</div>
+		<!-- 全局创建歌单控件 -->
+		<div class="fixedCreateSongListBox">
+			<div class="fixedCreateSongList clr_txtShadow">
+				<h2>创建歌单</h2>
+				<input type="text" class="createSongListName" placeholder="请输入要创建的歌单名">
+				<button class="createSongListBtn">创建</button>
+			</div>
+		</div>
+		<!-- 全局歌单列表 -->
+		<div class="fixedSongListBox">
+			<div class="fixedSongList clr_txtShadow">
+				<ul></ul>
+			</div>
+		</div>
+		<!-- 全局分享列表 -->
+		<div class="fixedShareBox">
+			<div class="fixedShare clr_txtShadow">
+				<h2>分享</h2>
+				<div class="shareBuilt_in">
+					<ul class="clr_float">
+						<li><a href="#"><em class="fas fa-music"></em>动态</a></li>
+						<li><a href="#"><em class="fas fa-comment-alt"></em>私信</a></li>
+						<li><a href="#"><em class="fas fa-link"></em>复制链接</a></li>
+					</ul>
+				</div>
+				<div class="shareElse">
+					<ul class="clr_float">
+						<li><a href="#" class="share_weixin"><em></em>微信</a></li>
+						<li><a href="#" class="share_weibo"><em></em>微博</a></li>
+						<li><a href="#" class="share_qq"><em></em>qq</a></li>
+						<li><a href="#" class="share_qqkongjian"><em></em>qq空间</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- 全局消息组件 -->
+		<div class="fixedMessageBox clr_txtShadow">
+			<span>哈哈哈</span>
+		</div>
+		<!-- 全局视频播放器 -->
+		<div class="fiexdBox">
+			<div class="videoBox">
+				<video src="" controls></video>
+			</div>
+		</div>
+		<!-- 播放器 -->
+		<audio src=""></audio>
+		<div class="userId" hidden>{{ userId }}</div>
+	</body>
+	<script src="/static/js/class/Lunbo.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/static/js/class/ToolBox.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/static/js/class/FoldUl.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/static/js/class/SlideRange.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/static/js/fun.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/static/js/send_ajax.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/static/js/index.js" type="text/javascript" charset="utf-8"></script>
+</html>

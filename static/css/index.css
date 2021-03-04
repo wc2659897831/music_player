@@ -1,0 +1,1880 @@
+* {
+	font-family: xiheiti;
+}
+
+#index {
+	min-width: 370px;
+	background-image: url(../imgs/bg2.jpg);
+	background-repeat: repeat-y;
+	height: 100%;
+	background-size: 100%;
+}
+
+/* S userPanel */
+#userPanel {
+	width: 80%;
+	background-image: url(../imgs/bg4.jpg);
+	/* background-size: 100%; */
+	background-size: cover;
+	z-index: 1002;
+}
+
+/* 清除padding */
+#userPanel .ui-panel-inner {
+	padding: 0;
+}
+
+#userPanel .userInfo {
+	padding: 15px;
+	line-height: 60px;
+	background-image: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0));
+}
+
+#userPanel .userInfo .userImg {
+	margin-right: 10px;
+	float: left;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+
+#userPanel .userInfo .userName {
+	margin-right: 7px;
+	float: left;
+	color: #fff;
+}
+
+#userPanel .userInfo .userLevelBox {
+	padding: 0 8px 0 5px;
+	border-radius: 15px;
+	font-size: 12px;
+	color: #fff;
+	background-color: rgba(57, 58, 70, 1);
+}
+
+#userPanel .userFunction {
+	padding: 0 15px;
+}
+
+#userPanel .userToolBox ul {
+	padding-bottom: 10px;
+	display: flex;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#userPanel .userToolBox ul li {
+	flex: 1;
+}
+
+#userPanel .userToolBox ul li em {
+	position: absolute;
+	top: 15px;
+	left: 50%;
+	width: 35px;
+	height: 35px;
+	line-height: 35px;
+	font-size: 22px;
+	color: rgba(124, 179, 226, 1);
+	transform: translateX(-50%);
+}
+
+#userPanel .userToolBox ul li a {
+	position: relative;
+	display: block;
+	padding: 60px 0 10px 0;
+	text-shadow: none;
+	font-size: 12px;
+	text-align: center;
+	color: #fff;
+}
+
+#userPanel .userItem li a {
+	position: relative;
+	display: block;
+	padding-left: 45px;
+	height: 50px;
+	text-shadow: none;
+	color: #fff;
+	font-weight: 400;
+	line-height: 50px;
+}
+
+#userPanel .userItem li em {
+	position: absolute;
+	top: 50%;
+	left: 5px;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 18px;
+	text-align: center;
+	transform: translateY(-50%);
+}
+
+#userPanel .userFixedBtnBox {
+	/* position: fixed;
+	bottom: 0;
+	left: 0; */
+	display: flex;
+	width: 100%;
+	background-color: rgba(0, 0, 0, .2);
+}
+
+#userPanel .userFixedBtnBox a {
+	position: relative;
+	display: block;
+	flex: 1;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	color: #fff;
+	font-weight: 400;
+	text-shadow: none;
+}
+
+#userPanel .userFixedBtnBox a::after {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	content: '';
+	width: 1px;
+	height: 60%;
+	border-right: 1px solid rgba(255, 255, 255, .4);
+	transform: translateY(-50%);
+}
+
+#userPanel .userFixedBtnBox a:last-child::after {
+	border-right: none;
+}
+
+/* E userPanel */
+
+.panelShowBgBox {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	z-index: 1001;
+}
+
+/* S #indexHeader */
+
+#indexHeader {
+	/* background-image: linear-gradient(rgba(62, 66, 75, 1), rgba(62, 66, 75, 0.0)); */
+	background-color: transparent;
+	height: 60px;
+	border-bottom: 0px;
+	transition: all 0.3s;
+}
+
+#indexHeader.bg {
+	background-image: linear-gradient(rgba(62, 66, 75, 1), rgba(62, 66, 75, 0.4));
+}
+
+#indexHeader ol {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+#indexHeader ol li {
+	display: inline-block;
+	color: rgba(255, 255, 255, .7);
+	padding: 0 1.5vw;
+	height: 60px;
+	line-height: 60px;
+	font-size: 13px;
+	font-family: '黑体';
+	font-weight: 400;
+	transition: all 0.5s;
+}
+
+#indexHeader ol li.curLi {
+	font-size: 20px;
+	font-weight: 500;
+	color: #fff;
+}
+
+/* 设置内置图标在haeder的高度 */
+#indexHeader .ui-btn-icon-notext.ui-btn-right,
+#indexHeader .ui-btn-icon-notext.ui-btn-left {
+	top: 1em;
+}
+
+#indexHeader .ui-btn-icon-notext.ui-btn-right {
+	right: 0.6em;
+}
+
+#indexHeader .ui-btn-icon-notext.ui-btn-left {
+	left: 0.6em;
+}
+
+/* E #indexHeader */
+
+/* S #indexMain .contentToggleBox */
+.contentToggleBox,
+.bannerBox {
+	position: relative;
+	width: 100%;
+}
+
+.contentToggleBox>ul,
+.bannerBox>ul {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+
+.contentToggleBox>ul>li,
+.bannerBox>ul>li {
+	float: left;
+	/* height: 100%; */
+	overflow: hidden;
+}
+
+.contentToggleBox>ul>li {
+	padding-bottom: 55px;
+}
+
+.contentToggleBox ol,
+.bannerBox ol {
+	position: absolute;
+	bottom: 10%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.contentToggleBox ol li,
+.bannerBox ol li {
+	float: left;
+	margin: 0.1em 0.2em;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background-color: rgba(0, 0, 0, .3);
+	transition: all 0.3s;
+}
+
+.contentToggleBox ol .curLi,
+.bannerBox ol .curLi {
+	border-radius: 10px;
+	background-color: rgba(255, 78, 34, 1);
+}
+
+.exitBtn {
+	position: absolute;
+	left: 50%;
+	bottom: 130px;
+	width: 100px;
+	height: 40px;
+	border-radius: 5px;
+	border: 1px solid rgba(255, 255, 255, .5);
+	background-color: rgba(255, 255, 255, .3);
+	text-align: center;
+	line-height: 40px;
+	font-size: 20px;
+	font-weight: 400;
+	color: #fff;
+	transform: translateX(-50%);
+}
+
+/* E #indexMain .contentToggleBox */
+
+/* S #indexMain .toolBox */
+#indexMain .toolBox {
+	position: relative;
+	height: 91px;
+}
+
+#indexMain .toolBox ul {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 540px;
+}
+
+#indexMain .toolBox ul li {
+	position: relative;
+	float: left;
+	width: 75px;
+	background-size: 70px;
+	background-repeat: no-repeat;
+	background-position: center 1px;
+}
+
+#indexMain .toolBox ul li a {
+	display: block;
+	padding: 65px 0 11px 0;
+	width: 100%;
+	height: 100%;
+	font-size: 12px;
+	color: rgba(255, 255, 255, .7);
+	text-align: center;
+	text-shadow: none;
+}
+
+.toolBox ul li em {
+	position: absolute;
+	top: 14px;
+	left: 50%;
+	width: 40px;
+	height: 40px;
+	font-size: 15px;
+	border-radius: 50%;
+	color: #EEEEEE;
+	line-height: 40px;
+	text-align: center;
+	background-color: rgba(86, 166, 227, 1);
+	transform: translateX(-50%);
+}
+
+/* E #indexMain .toolBox
+
+/* S #indexMain Page 1 */
+/* S #indexMain .toolList */
+#indexMain .toolList ul {
+	position: static;
+	border-top: 1px solid rgba(255, 255, 255, .1);
+	border-bottom: 6px solid rgba(255, 255, 255, .1);
+}
+
+#indexMain .toolList li {
+	position: relative;
+}
+
+#indexMain .toolList li a {
+	position: relative;
+	display: block;
+	padding-left: 73px;
+	height: 55px;
+	line-height: 55px;
+	color: #fff;
+	font-weight: 400;
+	text-shadow: none;
+	font-size: 15px;
+}
+
+#indexMain .toolList li a::before {
+	position: absolute;
+	bottom: 0;
+	content: '';
+	width: 100%;
+	height: 1px;
+	background-color: rgba(255, 255, 255, .1);
+}
+
+#indexMain .toolList li:last-child a::before {
+	height: 0;
+}
+
+#indexMain .toolList li em {
+	position: absolute;
+	top: 50%;
+	left: 17px;
+	font-size: 20px;
+	color: rgba(255, 255, 255, .9);
+	width: 40px;
+	text-shadow: none;
+	text-align: center;
+	transform: translateY(-50%);
+}
+
+#indexMain .toolList li a span {
+	margin-left: 7px;
+	font-size: 12px;
+	color: rgba(255, 255, 255, .4);
+}
+
+/* E #indexMain .toolList */
+
+/* S #indexMain .fold */
+.foldBtn {
+	position: relative;
+	margin-right: 90px;
+	height: 45px;
+	line-height: 45px;
+	text-shadow: none;
+	color: #fff;
+}
+
+.foldBtn .songListTitle {
+	display: inline-block;
+	width: 100%;
+	height: 45px;
+	text-indent: 2.5em;
+	font-weight: 400;
+}
+
+.foldBtn .songListTitle em {
+	position: absolute;
+	top: 10px;
+	left: 8px;
+	width: 25px;
+	height: 25px;
+	font-size: 25px;
+	text-indent: 0;
+	text-align: center;
+	transition: all 0.5s;
+}
+
+.foldBtn .songListTitle strong {
+	margin-left: 8px;
+	font-weight: 400;
+	font-size: 12px;
+	color: rgba(255, 255, 255, .5);
+}
+
+.foldBtn .songListTitle .foldIconHide {
+	transform: rotate(-90deg);
+}
+
+.foldBtn .addSongListBtn,
+.foldBtn .songListTool {
+	position: absolute;
+	width: 45px;
+	text-align: center;
+}
+
+.foldBtn .addSongListBtn {
+	right: -45px;
+}
+
+.foldBtn .songListTool {
+	right: -90px;
+}
+
+.foldBox li,
+.fixedShowCreateSongList li,
+.userTemplateCreactSongList li {
+	position: relative;
+	height: 70px;
+}
+
+.foldBox li a,
+.fixedShowCreateSongList li a,
+.userTemplateCreactSongList li a {
+	display: block;
+	height: 100%;
+}
+
+.foldBox li img,
+.fixedShowCreateSongList li img,
+.userTemplateCreactSongList li img {
+	float: left;
+	margin: 10px;
+	width: 50px;
+	height: 50px;
+	border-radius: 5px;
+	background-color: rgba(42, 44, 59, 0.5);
+}
+
+.foldBox li h2,
+.fixedShowCreateSongList li h2,
+.userTemplateCreactSongList li h2 {
+	padding-top: 15px;
+	font-size: 16px;
+	color: #fff;
+}
+
+.foldBox li h3,
+.fixedShowCreateSongList li h3,
+.userTemplateCreactSongList li h3 {
+	margin-top: 5px;
+	font-size: 13px;
+	font-weight: 400;
+	color: rgba(255, 255, 255, .7);
+}
+
+.foldBox .removeCreateSongList,
+.userTemplateCreactSongList .removeCreateSongList {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	color: #fff;
+	transform: translateY(-50%);
+}
+
+/* E #indexMain .fold */
+/* E #indexMain Page 1 */
+
+
+/* S #indexMain Page 2 */
+#indexMain .bannerBox {
+	height: 198px;
+}
+
+#indexMain .bannerBox>ul {
+	height: 100%;
+}
+
+#indexMain .bannerBox li a {
+	display: block;
+	padding: 10px;
+	height: 180px;
+	overflow: hidden;
+}
+
+#indexMain .bannerBox li img {
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+}
+
+/* 重设ol 的选中样式 */
+.bannerBox ol .curLi {
+	background-color: rgba(79, 162, 231, 1);
+}
+
+.discoverTool ul {
+	display: flex;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.discoverTool ul li {
+	position: relative;
+	flex: 1;
+	text-align: center;
+	text-shadow: none;
+}
+
+.contentToggleBox .discoverTool ul li a {
+	display: block;
+	padding: 70px 0 12px 0;
+	color: #fff;
+	font-size: 12px;
+}
+
+.discoverTool ul li em {
+	position: absolute;
+	display: block;
+	top: 15px;
+	left: 50%;
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	line-height: 45px;
+	font-size: 20px;
+	color: #fff;
+	background-color: rgba(86, 166, 227, 1);
+	transform: translateX(-50%);
+}
+
+.recommendDiscoverList {
+	padding-bottom: 15px;
+	border-bottom: 6px solid rgba(255, 255, 255, .1);
+}
+
+.recommendDiscoverList .recommendDiscoverTitleBox,
+.recommendedVideoList .recommendedVideoTitleBox {
+	position: relative;
+	height: 60px;
+}
+
+.recommendDiscoverList .recommendDiscoverTitle,
+.recommendedVideoList .recommendVideoTitle {
+	line-height: 60px;
+	font-size: 18px;
+	margin-left: 10px;
+	color: #fff;
+	font-weight: 400;
+}
+
+.recommendDiscoverList .manyDiscover {
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	padding: 4px 12px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 22px;
+	color: #fff;
+	font-size: 12px;
+	transform: translateY(-50%);
+}
+
+.recommendDiscoverList .recommendDiscoverBlobk {
+	position: relative;
+	padding: 5px;
+	height: 44vw;
+	text-shadow: none;
+	color: #fff;
+	font-size: 12px;
+}
+
+.recommendDiscoverList .recommendDiscoverBlobk .playCountBox {
+	position: absolute;
+	top: 10px;
+	right: 13px;
+	opacity: 0.8;
+}
+
+.recommendDiscoverList .ui-grid-b {
+	padding: 0 5px;
+}
+
+.recommendDiscoverList .recommendDiscoverBlobk img {
+	margin-bottom: 5px;
+	width: 100%;
+	height: 30vw;
+	border-radius: 7px;
+}
+
+.recommendedVideoList .recommendVideoTitle {
+	border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+.recommendedVideoList .getNewVideo {
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	color: #fff;
+	font-size: 12px;
+	transform: translateY(-50%);
+}
+
+.recommendedVideoList .getNewVideo em {
+	padding-right: 5px;
+}
+
+.recommendedVideoList .recommendedVideoBox {
+	padding: 15px 10px 0 10px;
+	border-bottom: 6px solid rgba(255, 255, 255, .1);
+	color: #fff;
+}
+
+.recommendedVideoList .recommendedVideoBox .videoBox {
+	position: relative;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.recommendedVideoList .recommendedVideoBox .videoBox .palyIcon {
+	position: absolute;
+	display: block;
+	top: 42%;
+	left: 50%;
+	font-size: 35px;
+	color: rgba(255, 255, 255, .5);
+	transform: translate(-50%, -50%);
+}
+
+.recommendedVideoList .recommendedVideoBox .videoBox img {
+	display: block;
+	width: 100%;
+	height: 192px;
+}
+
+.recommendedVideoList .recommendedVideoBox .videoBox .videoTime {
+	position: absolute;
+	right: 15px;
+	bottom: 59px;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.recommendedVideoList .recommendedVideoBox .videoBox .videoTime em {
+	margin-right: 5px;
+}
+
+.recommendedVideoList .recommendedVideoBox .videoBox .videoTitle {
+	position: relative;
+	padding-left: 12px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 15px;
+	background-color: rgba(255, 255, 255, .2);
+}
+
+.recommendedVideoList .recommendedVideoBox .videoBox .videoTitle .videoUserImg {
+	position: absolute;
+	top: 0;
+	right: 15px;
+	width: 50px;
+	height: 100%;
+}
+
+.recommendedVideoList .recommendedVideoBox .videoBox .videoTitle .videoUserImg img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.recommendedVideoBox .likes,
+.recommendedVideoBox .comments,
+.recommendedVideoBox .settings {
+	display: inline-block;
+	height: 45px;
+	line-height: 45px;
+	color: rgba(255, 255, 255, .7);
+}
+
+.recommendedVideoBox .likes,
+.recommendedVideoBox .comments {
+	float: left;
+	margin-left: 5px;
+	width: 80px;
+}
+
+.recommendedVideoBox .likes em,
+.recommendedVideoBox .comments em {
+	margin-right: 5px;
+}
+
+.recommendedVideoBox .settings {
+	float: right;
+	width: 45px;
+	text-align: center;
+}
+
+/* E #indexMain Page 2 */
+
+
+/* S songListTemplate */
+#songListTemplate,
+#userInfoTemplate,
+#userEditPage {
+	background-image: url(../imgs/bg.png);
+	background-size: 100%;
+}
+
+#songListTemplateHeader,
+#userInfoTemplateHeader,
+#userEditPageHeader {
+	height: 50px;
+	background-color: rgba(62, 64, 76, 0.9);
+	border-bottom-width: 0;
+}
+
+#songListTemplateHeader .ui-btn-icon-notext.ui-btn-left,
+#songListTemplateHeader .ui-btn-icon-notext.ui-btn-right,
+#userInfoTemplateHeader .ui-btn-icon-notext.ui-btn-left,
+#userInfoTemplateHeader .ui-btn-icon-notext.ui-btn-right,
+#userEditPageHeader .ui-btn-icon-notext.ui-btn-left,
+#userEditPageHeader .ui-btn-icon-notext.ui-btn-right {
+	top: 10px;
+}
+
+.songListTemplateHeaderTitle {
+	margin-left: 40px;
+	color: #fff;
+	line-height: 50px;
+}
+
+#songListTemplateMain {
+	position: relative;
+}
+
+.songListTemplateInfo {
+	background-color: rgba(62, 64, 76, 0.9);
+	padding: 15px 15px 0 15px;
+}
+
+.songListTemplateInfo .imgBox {
+	position: absolute;
+	width: 110px;
+	height: 110px;
+	border-radius: 5px;
+	text-align: center;
+	overflow: hidden;
+}
+
+.songListTemplateInfo .imgBox img {
+	width: 100%;
+	height: 100%;
+}
+
+.songListTemplateInfo .imgBox em {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	line-height: 110px;
+	font-size: 50px;
+	color: rgba(255, 255, 255, .8);
+}
+
+.songListTemplateInfoTitle {
+	margin-left: 125px;
+	font-size: 18px;
+}
+
+.songListTemplateUserInfo {
+	position: relative;
+	display: block;
+	margin: 10px 0 0 125px;
+	height: 30px;
+	font-size: 12px;
+	line-height: 30px;
+}
+
+.songListTemplateUserInfo img {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+
+.songListTemplateInfo .songListTemplateInfoTitle {
+	color: #fff;
+}
+
+.songListTemplateInfo .songListTemplateUserName {
+	position: absolute;
+	top: 0;
+	margin-left: 40px;
+	color: #fff;
+	font-weight: 400;
+}
+
+.songListTemplateInfo .songListTemplateUserName em {
+	margin-left: 5px;
+	margin-right: 7px;
+}
+
+.songListTmplateTool {
+	margin-top: 60px;
+}
+
+.songListTmplateTool ul {
+	display: flex;
+}
+
+.songListTmplateTool li {
+	flex: 1;
+}
+
+.songListTemplateInfo .songListTmplateTool li a {
+	position: relative;
+	display: block;
+	padding: 45px 0 20px 0;
+	text-align: center;
+	font-size: 12px;
+	text-shadow: none;
+	color: rgba(255, 255, 255, .9);
+}
+
+.songListTmplateTool li a em {
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	width: 35px;
+	height: 35px;
+	line-height: 35px;
+	font-size: 20px;
+	color: #fff;
+	transform: translateX(-50%);
+}
+
+.songList li>a {
+	position: relative;
+	display: block;
+	padding-left: 40px;
+	text-shadow: none;
+	height: 60px;
+}
+
+.songList li .number {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50px;
+	height: 60px;
+	font-family: 微软雅黑;
+	font-weight: 400;
+	text-align: center;
+	line-height: 60px;
+	color: rgba(255, 255, 255, .5);
+}
+
+.songList li h4 {
+	padding: 12px 0 0 10px;
+	color: #fff;
+}
+
+.songList li p {
+	margin: 3px 0 0 10px;
+	font-size: 12px;
+	color: rgba(255, 255, 255, .5);
+}
+
+.songList .songMv,
+.songList .songTool {
+	position: absolute;
+	top: 0;
+	width: 45px;
+	height: 60px;
+	font-size: 22px;
+	text-align: center;
+	line-height: 60px;
+	color: rgba(255, 255, 255, .5);
+}
+
+.songList .songMv {
+	right: 45px;
+}
+
+.songList .songTool {
+	right: 0;
+}
+
+/* E songListTemplate */
+
+/* S userInfoTemplate */
+#userInfoTemplateHeader {
+	background-color: transparent;
+}
+
+#userInfoTemplateMain {
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+#userInfoTemplateMain .userCoverBox {
+	position: relative;
+	padding: 0 15px;
+	height: 285px;
+	color: #fff;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	background-image: url(/static/imgs/userCover/user_cover_default.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+#userInfoTemplateMain .userCoverBox .userBtn {
+	position: absolute;
+	bottom: 20px;
+	right: 15px;
+	padding: 9px 15px;
+	border-radius: 17px;
+	font-size: 12px;
+	background-color: rgba(121, 122, 127, 1);
+}
+
+#userInfoTemplateMain .userCoverBox .userEdit {
+	right: 100px;
+}
+
+#userInfoTemplateMain .userAvatar {
+	position: absolute;
+	bottom: 79px;
+	width: 85px;
+	height: 85px;
+	border-radius: 50%;
+	background-color: black;
+	overflow: hidden;
+}
+
+#userInfoTemplateMain .userAvatar img {
+	position: absolute;
+	left: 50%;
+	height: 100%;
+	transform: translateX(-50%);
+}
+
+#userInfoTemplateMain .userName {
+	position: absolute;
+	bottom: 50px
+}
+
+#userInfoTemplateMain .userLevelBox {
+	position: absolute;
+	bottom: 20px
+}
+
+#userInfoTemplateMain .userInfoAndSongListBox {
+	padding: 15px;
+	color: #fff;
+}
+
+#userInfoTemplateMain .userInfoAndSongListBox h2 {
+	font-size: 16px;
+}
+
+/* E userInfoTemplate */
+
+/* S userEditPage */
+#userEditPage #userEditPageHeader h1 {
+	position: absolute;
+	padding: 0;
+	left: 50px;
+	line-height: 50px;
+	color: #fff;
+}
+
+#userEditPageMain .basicInfo {
+	margin-top: 10px;
+	padding: 0 15px;
+	background-color: rgba(255, 255, 255, 0.05);
+}
+
+#userEditPageMain .basicInfo li {
+	position: relative;
+	height: 45px;
+	line-height: 45px;
+	color: #fff;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#userEditPageMain .basicInfo li:first-child {
+	height: 65px;
+	line-height: 65px;
+}
+
+#userEditPageMain .basicInfo li:last-child {
+	border-bottom: none;
+}
+
+#userEditPageMain .basicInfo li p {
+	display: inline-block;
+	margin: 0;
+}
+
+#userEditPageMain .basicInfo li span {
+	float: right;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+#userEditPageMain .basicInfo .userAvatar {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	transform: translateY(-50%);
+}
+
+/* E userEditPage */
+
+/* S audioTemplate */
+#audioTemplate {
+	position: relative;
+	overflow: hidden;
+}
+
+#audioTemplate .audioTemplateBg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#audioTemplate .audioTemplateBg::before {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	content: '';
+	background-color: rgba(0, 0, 0, 0.3);
+	z-index: 2;
+}
+
+#audioTemplate .audioTemplateBg img {
+	position: absolute;
+	left: -50%;
+	height: 100%;
+	filter: blur(50px);
+	transform: translateX(-10%);
+	z-index: 1;
+}
+
+#audioTemplate * {
+	z-index: 2;
+}
+
+#audioTemplateHeader {
+	background-color: transparent;
+	border-bottom-width: 0;
+	height: 50px;
+}
+
+#audioTemplateHeader .ui-btn-icon-notext.ui-btn-left,
+#audioTemplateHeader .ui-btn-icon-notext.ui-btn-right {
+	top: 10px;
+}
+
+.audioTemplateHeaderTitle {
+	position: relative;
+}
+
+.audioTemplateHeaderTitle .songName {
+	position: absolute;
+	top: 6px;
+	left: 40px;
+	font-size: 17px;
+	font-weight: 400;
+	color: #fff;
+}
+
+.audioTemplateHeaderTitle .singerName {
+	position: absolute;
+	top: 16px;
+	left: 40px;
+	font-size: 12px;
+	color: rgba(255, 255, 255, .5);
+}
+
+#audioTemplateHeader .audioTemplateShare {
+	position: absolute;
+	right: 0;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	font-size: 20px;
+	color: #fff;
+}
+
+#audioTemplateMain {
+	height: calc(100vh - 52px);
+}
+
+.coverBox,
+.lyricsAndVoiceBox {
+	position: absolute;
+	display: none;
+	width: 100%;
+	height: calc(100% - 52px);
+}
+
+.coverBox {
+	display: block;
+}
+
+.coverBox .coverBoxImg {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	width: 60vw;
+	height: 60vw;
+	border-radius: 50%;
+	border: 2px solid rgba(0, 0, 0, .1);
+	background-color: rgba(0, 0, 0, .7);
+	transform: translate(-50%, -50%);
+	animation: rorate_360 7s linear infinite;
+	animation-play-state: paused;
+	overflow: hidden;
+}
+
+.coverBox .coverBoxImg::after {
+	position: absolute;
+	top: 195px;
+	left: -91px;
+	width: 200%;
+	height: 5px;
+	content: '';
+	background-color: rgba(255, 255, 255, .2);
+	transform: rotate(77deg);
+}
+
+.coverBox .coverBoxImg::before {
+	position: absolute;
+	top: 195px;
+	left: -150px;
+	width: 200%;
+	height: 5px;
+	content: '';
+	background-color: rgba(255, 255, 255, .2);
+	transform: rotate(77deg);
+}
+
+.coverBox .coverBoxImg img {
+	position: absolute;
+	top: 50%;
+	display: block;
+	width: 100%;
+	transform: translateY(-50%);
+}
+
+.audioTool {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0, .3);
+}
+
+.audioTool .elseTool {
+	padding: 0 10px;
+}
+
+.audioTool .likeSongBtn_active {
+	color: #FF0000;
+}
+
+.audioTool .elseTool,
+.audioTool .controlTool {
+	display: flex;
+}
+
+.audioTool .elseTool li,
+.audioTool .controlTool li {
+	flex: 1;
+}
+
+.audioTool .elseTool li a,
+.audioTool .controlTool li a {
+	display: block;
+	text-align: center;
+	font-size: 22px;
+}
+
+.audioTool .elseTool li a {
+	height: 8vh;
+	line-height: 8vh;
+	color: rgba(255, 255, 255, .5);
+}
+
+.audioTool .controlTool li a {
+	height: 22vw;
+	line-height: 20vw;
+	color: #fff;
+}
+
+.audioTool .controlTool .songPlay {
+	font-size: 50px;
+}
+
+.audioTool .controlTool .playType a {
+	display: none;
+}
+
+.audioTool li.playType .curPlayType {
+	display: block;
+}
+
+.progressBarBox,
+.voiceBox {
+	position: relative;
+	height: 10vw;
+}
+
+.progressBarBox .audioRange,
+.voiceBox .voiceRange {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 60%;
+	height: 3px;
+	background-color: rgba(255, 255, 255, 0.5);
+	transform: translate(-50%);
+}
+
+.progressBarBox .audioRangeLenght,
+.voiceBox .voiceRangeLenght {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 100%;
+	content: '';
+	background-color: rgba(255, 255, 255, 1);
+	z-index: 1;
+}
+
+.progressBarBox .audioRangeBtn,
+.voiceBox .voiceRangeBtn {
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 1);
+	transform: translate(-50%, -40%);
+	z-index: 2;
+}
+
+.progressBarBox .curTime,
+.progressBarBox .sumTime {
+	position: absolute;
+	height: 10vw;
+	line-height: 10vw;
+	color: #fff;
+	text-shadow: none;
+}
+
+.progressBarBox .curTime {
+	left: 6vw;
+}
+
+.progressBarBox .sumTime {
+	right: 8vw;
+}
+
+.voiceBox em {
+	position: absolute;
+	left: 6vw;
+	width: 10vw;
+	height: 10vw;
+	text-align: center;
+	line-height: 10vw;
+	font-size: 16px;
+	color: #fff;
+}
+
+.lyricBox {
+	margin-top: 5vh;
+	height: 55vh;
+	overflow: hidden;
+	text-align: center;
+	text-shadow: none;
+	color: rgba(255, 255, 255, .3);
+}
+
+.lyricBox #lyric {
+	transition-duration: 600ms;
+}
+
+.lyricBox #lyric li {
+	display: block;
+	height: 7vh;
+	line-height: 7vh;
+	font-size: 3.5vh;
+	font-family: 微软雅黑;
+}
+
+.lyricBox #lyric .curLyric {
+	color: rgba(255, 255, 255, 1);
+}
+
+/* E audioTemplate */
+
+/* S searchPage */
+#searchPage {
+	background-image: url(../imgs/bg4.jpg);
+	background-size: cover;
+	height: 100%;
+}
+
+#searchPageHeader {
+	position: relative;
+	height: 50px;
+	border-bottom-width: 0;
+	/* background-color: rgba(63, 65, 77, 1); */
+	background-color: transparent;
+}
+
+#searchPageHeader .clearInputVal {
+	position: absolute;
+	top: 8px;
+	right: 47px;
+	width: 30px;
+	height: 30px;
+	display: none;
+	line-height: 30px;
+	text-align: center;
+	font-size: 20px;
+	color: #fff;
+	z-index: 1;
+}
+
+#searchPageForm {
+	position: absolute;
+	top: 0;
+	left: 47px;
+	right: 47px;
+}
+
+#searchPageForm .ui-input-text {
+	/* margin: 0.5em 48px; */
+}
+
+#searchPageForm .ui-corner-all {
+	border-radius: 0;
+}
+
+#searchPageForm .ui-body-inherit {
+	background-color: transparent;
+	border: none;
+	box-shadow: none;
+	border-bottom: 1px solid rgba(255, 255, 255, .5);
+	text-shadow: none;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+#searchInput::placeholder {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+#searchPageHeader .ui-btn-icon-notext.ui-btn-left,
+#searchPageHeader .ui-btn-icon-notext.ui-btn-right {
+	top: 0.71325em;
+}
+
+
+#searchPageMain {
+	padding: 0 15px;
+	text-shadow: none;
+	color: #fff;
+}
+
+#searchPageMain h2 {
+	margin-top: 15px;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+#searchPageMain li a {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+#searchPageMain li {
+	margin-top: 7px;
+	height: 55px;
+}
+
+#searchPageMain .songSerch li,
+#searchPageMain .userSearch li{
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+#searchPageMain .songTitle {
+	padding-top: 5px;
+	font-size: 20px;
+	font-weight: 400;
+	color: rgba(255, 255, 255, 1);
+}
+
+#searchPageMain .singer {
+	display: block;
+	margin-top: 4px;
+	font-size: 12px;
+	font-weight: 400;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+#searchPageMain .searchUserImg {
+	position: absolute;
+	top: 50%;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	transform: translateY(-50%);
+}
+
+#searchPageMain .searchUserName {
+	padding-top: 7px;
+	margin-left: 50px;
+	color: #fff;
+}
+
+#searchPageMain .searchUserInfo {
+	display: block;
+	margin: 2px 0 0 50px;
+	font-size: 12px;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+#searchPageMain .searchHistoryBox li {
+	float: left;
+	margin: 10px 5px 0 5px;
+	padding: 5px 10px;
+	height: auto;
+	border-radius: 40px;
+	color: #fff;
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+#searchPageMain .hotSearch {
+	/* display: flex; */
+	/* flex-wrap: wrap; */
+}
+
+#searchPageMain .hotSearch li {
+	position: relative;
+	/* width: 50%; */
+	height: 50px;
+	/* background-color: red; */
+}
+
+#searchPageMain .hotSearch li .index {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding-right: 6px;
+	width: 34px;
+	height: 50px;
+	border-right: 1px dashed rgba(255, 255, 255, 0.1);
+	text-align: center;
+	line-height: 50px;
+	font-size: 15px;
+	font-family: '黑体';
+}
+
+#searchPageMain .hotSearch li .hotSongName {
+	display: inline-block;
+	margin-left: 53px;
+	padding-top: 6px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#searchPageMain .hotSearch li .hotCount {
+	margin-left: 5px;
+	color: rgba(255, 255, 255, 0.3);
+	font-size: 12px;
+}
+
+#searchPageMain .hotSearch li .singer {
+	margin-top: 5px;
+	margin-left: 53px;
+	display: block;
+}
+
+/* E searchPage */
+
+/* S fixedAudioBox */
+.fixedAudioBox {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	display: none;
+	width: 100%;
+	height: 55px;
+	background-color: rgba(49, 58, 73, 0.85);
+	/* transition: all 0.3s; */
+	opacity: 1;
+}
+
+.fixedAudioBox .fixedAudioImgBox {
+	position: absolute;
+	top: 48%;
+	left: 9px;
+	width: 35px;
+	height: 35px;
+	border: 2px solid rgba(255, 255, 255, 0.7);
+	border-radius: 50%;
+	background-color: black;
+	transform: translateY(-50%);
+	overflow: hidden;
+}
+
+.fixedAudioBox .fixedAudioImgBox img {
+	position: absolute;
+	top: 50%;
+	display: block;
+	width: 100%;
+	transform: translateY(-50%);
+}
+
+.fixedAudioBox .fixedAudioTitle {
+	margin-left: 57px;
+}
+
+.fixedAudioBox .songName {
+	margin-top: 7px;
+	font-size: 18px;
+	color: #fff;
+}
+
+.fixedAudioBox .singerName {
+	margin-top: 1px;
+	font-size: 12px;
+	color: rgba(255, 255, 255, .8);
+}
+
+.fixedAudioBox .songPlay,
+.fixedAudioBox .songList {
+	position: absolute;
+	top: 0;
+	width: 55px;
+	height: 55px;
+	text-align: center;
+	line-height: 55px;
+	color: rgba(255, 255, 255, .9);
+}
+
+.fixedAudioBox .songPlay {
+	right: 55px;
+	font-size: 27px;
+}
+
+.fixedAudioBox .songList {
+	right: 0px;
+	font-size: 22px;
+}
+
+.fixedAudioBox .audioRangBox,
+.fixedAudioBox .audioRang {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 3px;
+}
+
+.fixedAudioBox .audioRangBox {
+	width: 100%;
+	background-color: rgba(255, 255, 255, .3);
+}
+
+.fixedAudioBox .audioRang {
+	background-color: rgba(86, 166, 227, 1);
+}
+
+.toggleBtn {
+	position: fixed;
+	bottom: 54px;
+	width: 40px;
+	height: 40px;
+	display: none;
+	border-radius: 0px 20px 20px 0;
+	line-height: 40px;
+	font-size: 18px;
+	text-align: center;
+	color: rgba(255, 255, 255, .9);
+	text-shadow: none;
+	background-color: rgba(49, 58, 73, 0.85);
+}
+
+.toggleBtn em {
+	transition: all 0.3s;
+}
+
+.fixedSongListBox,
+.fixedCreateSongListBox,
+.fixedSongSettingsBox,
+.fixedShowCreateSongListBox,
+.fixedShareBox {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .5);
+	z-index: 9999;
+}
+
+.fixedSongList,
+.fixedSongSettings,
+.fixedShowCreateSongList,
+.fixedShare {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 300px;
+	overflow: scroll;
+	background-color: rgba(63, 65, 77, 1);
+}
+
+.fixedSongList ul li,
+.fixedSongSettings ul li {
+	position: relative;
+	padding: 0 10px;
+	height: 50px;
+	line-height: 50px;
+}
+
+.fixedSongList ul li.curSong .listSongName {
+	color: rgba(86, 166, 227, 1);
+}
+
+.fixedSongList ul li a,
+.fixedSongSettingsBox .fixedSongSettings ul li a {
+	display: block;
+	color: #fff;
+	font-weight: 400;
+}
+
+.fixedSongList .listSongName {
+	display: inline-block;
+	font-size: 15px;
+}
+
+.fixedSongList .listSongSinger {
+	margin-left: 10px;
+	font-size: 12px;
+	color: rgba(255, 255, 255, .7);
+}
+
+.fixedSongList .listSongClose {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	font-size: 20px;
+}
+
+.fixedCreateSongList {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 80%;
+	padding: 15px;
+	border-radius: 10px;
+	background-color: rgba(63, 65, 77, 0.7);
+	transform: translate(-50%, -50%);
+	box-sizing: border-box;
+}
+
+.fixedCreateSongList>* {
+	margin-top: 10px;
+}
+
+.fixedCreateSongList h2 {
+	font-size: 20px;
+	color: rgba(255, 255, 255, 1);
+}
+
+.fixedCreateSongList input {
+	width: 100%;
+	height: 45px;
+	text-indent: 1em;
+	color: rgba(255, 255, 255, 0.7);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+	background-color: transparent;
+}
+
+.fixedCreateSongList input::placeholder {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.fixedCreateSongList button {
+	padding: 10px 0px 0 0px;
+	font-size: 25px;
+	color: rgba(255, 255, 255, 1);
+	border: none;
+	background-color: transparent;
+	outline: none;
+}
+
+.fixedSongSettings {
+	height: auto;
+}
+
+.fixedSongSettings ul li a em {
+	margin-right: 10px;
+	font-size: 15px;
+}
+
+/* E fixedAudioBox */
+
+.fixedShare {
+	height: auto;
+	border-radius: 20px 20px 0 0;
+}
+
+.fixedShare li {
+	float: left;
+}
+
+.fixedShare h2 {
+	padding: 16px 0 0 16px;
+	font-size: 12px;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.fixedShare em {
+	position: absolute;
+	top: 14px;
+	left: 50%;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 50px;
+	font-size: 22px;
+	transform: translateX(-50%);
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+.fixedShare a {
+	position: relative;
+	display: block;
+	width: 80px;
+	height: 108px;
+	line-height: 163px;
+	font-size: 12px;
+	text-align: center;
+	color: #fff;
+}
+
+.fixedShareBox .shareBuilt_in {
+	border-bottom: 1px solid rgba(255, 255, 255, .3);
+}
+
+.shareElse em::after {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 30px;
+	height: 30px;
+	content: '';
+	transform: translate(-50%, -50%);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+}
+
+.fixedShareBox .share_weixin em::after {
+	background-image: url(/static/imgs/icon/wx.png);
+	background-size: 70%;
+}
+
+.fixedShareBox .share_weibo em::after {
+	background-image: url(/static/imgs/icon/wb.png);
+}
+
+.fixedShareBox .share_qq em::after {
+	background-image: url(/static/imgs/icon/qq.png);
+}
+
+.fixedShareBox .share_qqkongjian em::after {
+	background-image: url(/static/imgs/icon/qqkj.png);
+}
+
+.fixedMessageBox {
+	position: fixed;
+	left: 50%;
+	bottom: 9vh;
+	display: none;
+	padding: 16px 40px;
+	border-radius: 40px;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.7);
+	transform: translateX(-50%);
+	z-index: 99999;
+}
+
+.fiexdBox {
+	position: fixed;
+	padding: 50px;
+	box-sizing: border-box;
+	top: 0;
+	left: 0;
+	display: none;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.8);
+	z-index: 9999;
+}
+
+.videoBox {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+video {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	transform: translate(-50%, -50%);
+}

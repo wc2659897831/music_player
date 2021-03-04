@@ -1,0 +1,172 @@
+* {
+	font-family: xiheiti;
+	font-weight: 400;
+}
+.nav{
+	position: relative;
+	padding-left: 15px;
+	height: 60px;
+	line-height: 60px;
+	color: rgba(255,255,255,1);
+	background: linear-gradient(to right, #000000, #434343);
+}
+.title{
+	display: inline-block;
+}
+.nav .userName{
+	position: absolute;
+	top: 0;
+	right: 147px;
+	height: 100%;
+	font-size: 15px;
+	color: #fff;
+}
+.nav button{
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	padding: 0 30px;
+	border: none;
+	color: #fff;
+	font-size: 18px;
+	background-color: transparent;
+	transition: all 0.3s;
+	cursor: pointer;
+}
+.nav button:hover{
+	background-color: rgba(0,0,0,0.5);
+}
+.mainBox{
+	margin: 10px;
+}
+.toggleNav{
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid rgba(0,0,0,0.5);
+}
+
+.toggleNav li{
+	float: left;
+	width: 100px;
+	text-align: center;
+}
+.curToggleNav{
+	background-color: #434343;
+	color: #fff;
+}
+.toggleBox>div{
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+.toggleBox>div:first-child{
+	display: block;
+}
+label{
+	display: block;
+	font-size: 20px;
+	line-height: 45px;
+}
+
+input {
+	display: block;
+}
+
+input[type="text"],
+input[type="number"]{
+	width: 100%;
+	max-width: 500px;
+	height: 50px;
+	text-indent: 1em;
+	font-size: 18px;
+	border: 1px solid rgba(0,0,0,0.5);
+}
+input[type="number"]{
+	width: 60px;
+}
+
+input[type="submit"] {
+	margin-top: 10px;
+	padding: 10px 40px;
+	border: 1px solid rgba(0,0,0,0.5);
+	background-color: #fff;
+	font-size: 20px;
+	transition: all 0.3s;
+}
+
+input[type="submit"]:hover{
+	border: 1px solid rgba(255,255,255,0.5);
+	background-color: rgba(0,0,0,0.5);
+	color: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.m_title{
+	height: 50px;
+	line-height: 50px;
+	font-weight: bold;
+	border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+
+.required{
+	padding-left: 5px;
+	font-size: 15px;
+	color: #FF6B6B;
+}
+
+table{
+	width: 100%;
+	min-width: 800px;
+}
+table tbody tr,
+table tbody td{
+	transition: all 0.1s;
+}
+table tbody tr:nth-child(odd){
+	background-color: rgba(0,0,0,0.1);
+}
+table tbody tr:nth-child(even){
+	background-color: rgba(0,0,0,0.05);
+}
+table tbody tr:hover{
+	background-color: rgba(0,0,0,0.4);
+}
+table tbody tr:hover td{
+	color: #fff;
+}
+table th{
+	font-size: 20px;
+	font-weight: bold;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+table td{
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	overflow: hidden;
+}
+
+table tfoot td{
+	border: 1px solid rgba(0,0,0,0.4);
+	transition: all 0.1s;
+}
+table tfoot td:hover{
+	color: #fff;
+	border: 1px solid rgba(255,255,255,0.4);
+	background-color: rgba(0,0,0,0.5);
+}
+
+select{
+	padding: 0 10px;
+	height: 50px;
+	font-size: 20px;
+}
+.updateSong,
+.updateUser,
+.addSong{
+	display: none;
+}

@@ -1,0 +1,52 @@
+body,
+ul,
+li,
+ol,h1,h2,h3,h4,h5,h6 {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+input{
+	outline: none;
+	border: none;
+}
+
+.clr_borAndBg {
+	border: none;
+	background-color: transparent !important;
+}
+
+.clr_boxShadow {
+	box-shadow: none !important;
+}
+
+.clr_txtShadow {
+	text-shadow: none !important;
+}
+.clr_float::after{
+	content: '';
+	display: block;
+	clear: both;
+}
+
+@font-face {
+	font-family: xiheiti;
+	src: url(../fonts/xiheiti.otf);
+}
+
+@keyframes rorate_360{
+	from{
+		transform: translate(-50%,-50%) rotate(0deg);
+	}
+	to{
+		transform: translate(-50%,-50%) rotate(360deg);
+	}
+}

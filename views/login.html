@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{{ message }}</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/static/fonts/fontawesome-free-5.11.2-web/css/all.css" />
+		<link rel="stylesheet" type="text/css" href="/static/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="/static/css/login.css" />
+	</head>
+	<body>
+		<div class="box clr_float">
+			<div class="loginBox">
+				<div class="logo"><em class="fas fa-pray"></em></div>
+				<form action="" id="loginForm">
+					<input type="text" name="username" placeholder="Username" required autofocus>
+					<input type="text" name="password" placeholder="Password" required>
+					<input type="submit" id="loginOK" value="Login">
+				</form>
+				<ul class="fangshi clr_float">
+					<li><a href="#" class="share_weixin"><em></em></a></li>
+					<li><a href="#" class="share_weibo"><em></em></a></li>
+					<li><a href="#" class="share_qq"><em></em></a></li>
+				</ul>
+				<div class="toggleBtn"><em class="fas fa-arrow-right"></em></div>
+			</div>
+			<div class="registerBox" >
+				<div class="bgBox">
+					<div class="logo"><em class="fas fa-blind"></em></div>
+					<form action="" id="registerForm">
+						<input type="text" name="username" placeholder="Username" required autofocus>
+						<input type="password" name="password" placeholder="Password" required>
+						<input type="password" name="enterpassword" placeholder="Enter Password" required>
+						<input type="submit" id="registerOK" value="Register">
+					</form>
+					<ul class="fangshi clr_float">
+						<li><a href="#" class="share_weixin"><em></em></a></li>
+						<li><a href="#" class="share_weibo"><em></em></a></li>
+						<li><a href="#" class="share_qq"><em></em></a></li>
+					</ul>
+					<div class="toggleBtn"><em class="fas fa-arrow-left"></em></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="/static/js/login.js" type="text/javascript" charset="utf-8"></script>
+</html>
+

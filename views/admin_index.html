@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>后台管理</title>
+		<link rel="stylesheet" type="text/css" href="/static/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="/static/css/admin_index.css" />
+		<script src="/node_modules/jquery/dist/jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="nav">
+			<h1 class="title">后台管理</h1>
+			<h2 class="userName">您好,管理员! {{ userName }}</h2>
+			<button type="button" class="userExit">退出登录</button>
+		</div>
+		<div class="toggleNav">
+			<ul>
+				<li class="curToggleNav">用户操作</li>
+				<li>歌曲操作</li>
+			</ul>
+		</div>
+		<div class="mainBox">
+
+			<div class="toggleBox">
+				<div class="userBox">
+					<div class="userList">
+						<h2 class="m_title">用户列表</h2>
+						<table border="0" cellspacing="0" cellpadding="0">
+							<thead>
+								<tr>
+									<th>序号</th>
+									<th>id</th>
+									<th>用户名</th>
+									<th>密码</th>
+									<th>邮箱</th>
+									<th>创建时间</th>
+									<th>头像</th>
+									<th>等级</th>
+									<th>权限</th>
+									<th>状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+					<div class="updateUser">
+						<h2 class="m_title">用户修改</h2>
+						<form action="" id="updateUserForm">
+							<label>用户名<span class="required">(必填)</span></label>
+							<input type="text" name="username" placeholder="username" required>
+							<label>密码<span class="required">(必填)</span></label>
+							<input type="text" name="password" placeholder="password" required>
+							<label>邮箱</label>
+							<input type="text" name="email" placeholder="email">
+							<label>创建时间</label>
+							<input type="text" name="createTime" placeholder="createTime" disabled>
+							<label>头像</label>
+							<input type="text" name="avatar" placeholder="avatar">
+							<label>等级</label>
+							<input type="text" name="level" placeholder="level">
+							<label>权限</label>
+							<select name="jurisdiction">
+								<option value="admin">管理员</option>
+								<option value="user">用户</option>
+							</select>
+							<label>状态<span class="required">(0-正常/1-封禁)</span></label>
+							<input type="number" name="specialInfo" max="1" min="0" value="0">
+							<input type="hidden" name="userId">
+							<input type="submit" id="updateUserSubmit" value="修改">
+						</form>
+					</div>
+				</div>
+				<div class="musicBox">
+					<div class="songList">
+						<h2 class="m_title">歌曲列表</h2>
+						<table border="0" cellspacing="0" cellpadding="0">
+							<thead>
+								<tr>
+									<th>序号</th>
+									<th>id</th>
+									<th>歌曲名</th>
+									<th>歌手</th>
+									<th>文件路径</th>
+									<th>歌曲路径</th>
+									<th>歌曲封面路径</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+							<tfoot>
+								<td colspan="8" class="addSongBtn">添加歌曲</td>
+							</tfoot>
+						</table>
+					</div>
+					<div class="addSong">
+						<h2 class="m_title">添加歌曲</h2>
+						<form action="" id="addSongForm">
+							<label>歌曲名<span class="required">(必填)</span></label>
+							<input type="text" name="name" placeholder="songname" required>
+							<label>歌手<span class="required">(必填)</span></label>
+							<input type="text" name="singer" placeholder="singer" required>
+							<label>歌曲文件路径<span class="required">(必填)</span></label>
+							<input type="text" name="src" placeholder="src" value="/static/audio/" required>
+							<label>歌词文件路径</label>
+							<input type="text" name="lrcSrc" placeholder="lrcSrc">
+							<label>歌曲封面</label>
+							<input type="text" name="musicCoverImg" placeholder="musicCoverImg">
+							<input type="submit" id="addSongSubmit" value="添加">
+						</form>
+					</div>
+					<div class="updateSong">
+						<h2 class="m_title">修改歌曲</h2>
+						<form action="" id="updateSongForm">
+							<label>歌曲名<span class="required">(必填)</span></label>
+							<input type="text" name="name" placeholder="songname" required>
+							<label>歌手<span class="required">(必填)</span></label>
+							<input type="text" name="singer" placeholder="singer" required>
+							<label>歌曲文件路径<span class="required">(必填)</span></label>
+							<input type="text" name="src" placeholder="src" value="" required>
+							<label>歌词文件路径</label>
+							<input type="text" name="lrcSrc" placeholder="lrcSrc">
+							<label>歌曲封面</label>
+							<input type="text" name="musicCoverImg" placeholder="musicCoverImg">
+							<input type="hidden" name="songId">
+							<input type="submit" id="updateSongSubmit" value="修改">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="/static/js/admin_index.js" type="text/javascript" charset="utf-8"></script>
+</html>
